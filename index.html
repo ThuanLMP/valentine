@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>Valentine của Milu</title>
+    </head>
+    <body>
+        <div class="main">
+            <img src="./thuan.jpg" alt="" id="img" />
+            <h1 id="text">Em có đồng ý làm ngừi iu tui hongg?</h1>
+            <div class="btns">
+                <button
+                    id="yes"
+                    class="button-1"
+                    role="button"
+                    onclick="done()"
+                >
+                    Đương nhiên chùii</button
+                ><button
+                    id="no"
+                    class="button-1"
+                    role="button"
+                    onclick="changePosition(this)"
+                >
+                    Hong bé ơiii
+                </button>
+            </div>
+        </div>
+        <script>
+            var lastX = -1;
+            var cnt = 0;
+
+            function done() {
+                var noBtn = document.getElementById('no');
+                var yesBtn = document.getElementById('yes');
+                var img = document.getElementById('img');
+                var tx = document.getElementById('text');
+                noBtn.style.display = 'none';
+                yesBtn.style.display = 'none';
+                img.style.display = 'block';
+                img.style.transform = 'scale(100%)';
+                tx.innerHTML = 'Khà khà tui có ngừi iu dồi mọi người ạaaa';
+            }
+
+            function changePosition(target) {
+                let x = Math.floor(Math.random() * 5);
+                if (x == lastX) changePosition(target);
+                if (cnt++ >= 10) {
+                    target.style.display = 'none';
+                    document.getElementById('yes').style.fontSize = '36px';
+                    document.getElementById('yes').style.marginLeft = '0px';
+                }
+                switch (x) {
+                    case 0:
+                        target.style.top = '100px';
+                        target.style.left = '150px';
+                        break;
+                    case 1:
+                        target.style.top = '-100px';
+                        target.style.left = '-100px';
+                        break;
+                    case 2:
+                        target.style.top = '150px';
+                        target.style.left = '-100px';
+                        break;
+                    case 3:
+                        target.style.top = '100px';
+                        target.style.left = '-250px';
+                        break;
+                    case 4:
+                        target.style.top = '180px';
+                        target.style.left = '-200px';
+                        break;
+                    case 5:
+                        target.style.top = '-200px';
+                        target.style.left = '-250px';
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>
